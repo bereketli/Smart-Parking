@@ -36,4 +36,4 @@ function employeeValidator(input){
 
 }
 
-module.exports.EmployeeValidator = employeeValidator
+module.exports = employeeValidator

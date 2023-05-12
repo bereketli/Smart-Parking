@@ -35,6 +35,6 @@ function customerValidator(input){
 
 }
 
-module.exports.customerValidator = customerValidator
+module.exports = customerValidator
 
 

@@ -1,11 +1,11 @@
 const express = require("express")
-const {customerValidator}= require("../validation/customer")
-const {EmployeeValidator} = require("../validation/employees")
+const bcrypt = require("bcrypt")
+const customerValidator= require("../validation/customer")
+const EmployeeValidator = require("../validation/employees")
+const db = require("../config/admin")
 const router = express.Router()
 
-router.post("/reg/:id", async(req, res) => {
-  
-    const db = admin.firestore()
+router.post("/:id", async(req, res) => {
 
     if (req.params.id == "customer"){
         const Customers = db.collection("Customers")
@@ -13,8 +13,14 @@ router.post("/reg/:id", async(req, res) => {
 
         if ( !error_customer_input){
 
-            await Customers.add(req.body);
-            res.send(req.body)
+            bcrypt.hash(req.body.password, 10 , async(err, result) =>{
+                req.body.password = result
+                
+                await Employees.add(req.body)
+                res.status(200).send(req.body)
+                
+
+            })
      
         }
     
@@ -30,8 +36,17 @@ router.post("/reg/:id", async(req, res) => {
         const error_employee_input = EmployeeValidator(req.body)
 
         if (!error_employee_input){
-            await Employees.add(req.body)
-            res.status(200).send("OK")
+            bcrypt.hash(req.body.password, 10 , async(err, result) =>{
+                req.body.password = result
+                
+                await Employees.add(req.body)
+                res.status(200).send(req.body)
+                
+
+            })
+            
+         
+           
         }
         else{
             res.status(400).send(error_employee_input)
@@ -42,4 +57,4 @@ router.post("/reg/:id", async(req, res) => {
 })
 
 
-module.exports.router = router
+module.exports = router

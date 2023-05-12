@@ -2,7 +2,6 @@ const express = require("express")
 const router = express.Router()
 const db = require("../config/admin")
 
-
 router.post("/",async(req, res) => {
     const Slot = db.collection("Customer")
     const query = Slot.where(req.body.field, "==", req.body.carPlate)
