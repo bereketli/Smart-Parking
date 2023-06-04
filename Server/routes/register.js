@@ -1,6 +1,6 @@
 const express = require("express")
 const bcrypt = require("bcrypt")
-const customerValidator= require("../validation/customer")
+const customerValidator = require("../validation/customer")
 const EmployeeValidator = require("../validation/employees")
 const db = require("../config/admin")
 const router = express.Router()
@@ -34,22 +34,22 @@ router.post("/:id", async(req, res) => {
 
         const Employees = db.collection("Employees")
         const error_employee_input = EmployeeValidator(req.body)
-
+        
+        console.log("upper")
         if (!error_employee_input){
+            console.log(req.body)
             bcrypt.hash(req.body.password, 10 , async(err, result) =>{
                 req.body.password = result
-                
                 await Employees.add(req.body)
-                res.status(200).send(req.body)
+                res.send(req.body)
                 
 
             })
-            
-         
            
         }
         else{
             res.status(400).send(error_employee_input)
+            console.log(error_employee_input)
         }
 
     

@@ -3,6 +3,7 @@
 # dependencies
 /Server/config/
 /Server/node_modules/
+/client/node_modules/
 /.pnp
 .pnp.js
 
