@@ -1,8 +1,7 @@
-import Headertable from "./Headertable";
-const History = (props) => {
+import Headertable from "../sign in/Headertable";
+const ShowPrice = (props) => {
    
     const slots = props.slots;
-    console.log(slots)
     const date = new Date()
     const currentSecond = Math.floor(date.getTime() / 1000);
   
@@ -27,14 +26,21 @@ const History = (props) => {
           }
     
     return (
-      <div className="grid grid-cols-7 shadow-gray-700 shadow-lg rounded-lg mx-8 my-4 px-4 py-4 bg-white text-blue-700 font-semibold">
-        <Headertable text = {"Slot NO"}/>
+      <div className="grid grid-cols-5 shadow-gray-700 shadow-lg rounded-lg mx-8 my-4 px-4 py-4 bg-white text-blue-700 font-semibold">
         <Headertable text = {"Car Plate"}/>
-        <Headertable text = {"Reserved"}/>
-        <Headertable text = {"Occupied"}/>
-        <Headertable text = {"Reserved Date"}/>
-        <Headertable text = {"Occupied Date"}/>
+        <Headertable text = {"Slot NO"}/>
+        {slots[0].isReserved &&  <Headertable text = {"Reserved Date"}/> }
+        {slots[0].occupiedDate && <Headertable text = {"Occupied Date"}/> }
         <Headertable text = {"Fee (ETB)"}/>
+        <Headertable text = {""}/>
+
+        <div  className = "shadow-gray-500 shadow-sm rounded-sm">
+          {slots.map((slot, idx) => (
+            <p key={idx} >
+              {slot.carPlate}
+            </p>
+          ))}
+        </div>
 
         <div  className = "shadow-gray-500 shadow-sm rounded-sm">
           {slots.map((slot, idx) => (
@@ -43,42 +49,31 @@ const History = (props) => {
             </p>
           ))}
         </div>
-        <div  className = "shadow-gray-500 shadow-sm rounded-sm">
-          {slots.map((slot, idx) => (
-            <p key={idx} >
-              {slot.carPlate}
-            </p>
-          ))}
-        </div>
-        <div  className = "shadow-gray-500 shadow-sm rounded-sm">
-          {slots.map((slot, idx) => (
-            <p key={idx}>{slot.isReserved.toString()}</p>
-          ))}
-        </div>
-        <div  className = "shadow-gray-500 shadow-sm rounded-sm">
-          {slots.map((slot, idx) => (
-            <p key={idx}>{slot.isOccupied.toString()}</p>
-          ))}
-        </div>
-        <div  className = "shadow-gray-500 text-sm shadow-sm rounded-sm">
+        
+        {slots[0].isReserved &&  <div className = "shadow-gray-500 text-sm shadow-sm rounded-sm">
           {slots.map((slot, idx) => (
             <p key={idx}>{ formatDate(slot.reservedDate._seconds)}</p>
           ))}
-        </div>
-        <div  className = "shadow-gray-500 text-sm shadow-sm rounded-sm">
+        </div> }
+
+        {slots[0].isOccupied  &&  <div className = "shadow-gray-500 text-sm shadow-sm rounded-sm">
           {slots.map((slot, idx) => (
             <p key={idx}>{ formatDate( slot.occupiedDate._seconds)}</p>
           ))}
-        </div>
+        </div> }
+        
         <div  className = "shadow-gray-500 shadow-sm rounded-sm">
           {slots.map((slot, idx) => (
             <p key={idx}>{ Math.floor( (8/3600) * ( currentSecond - slot.occupiedDate._seconds) ) }  birr</p>
           ))}
+        </div>
+        <div className="h-full w-full flex">
+            <button className="mx-auto px-8  bg-blue-600 text-gray-100 hover:bg-blue-500 hover:text-white rounded-md">PAY</button>
         </div>
         
       </div>
     );
   }
   
-  export default History;
+  export default ShowPrice;
   

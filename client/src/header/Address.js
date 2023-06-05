@@ -15,7 +15,7 @@ function showSlot(event){
     occupiedSlotHandler(response.data)
    })
    .catch(error => {
-    console.log(error)
+
    })
     
 

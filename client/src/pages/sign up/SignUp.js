@@ -85,13 +85,13 @@ const SignUp = (props) =>{
 
                 <div className = "mt-6" >
                     <form action="">
-                        <Input type = {"text"} id = {"name"} value = {name} onChange ={handleName} name = "name" placeholder = {"Name"} label = {"Name"}></Input>
-                        <Input type = {"text"} id = {"fatherName"} value = {fatherName} onChange ={handleFatherName} name = "fatherName" placeholder = {"Father Name"} label = {"Father Name"}></Input>
-                        <Input type = {"text"} id = {"phone"} value = {phoneNumber} onChange ={handlePhoneNumber} name = "phone" placeholder = {"Phone Number (+2519...)"} label = {"Phone Number "}></Input>
-                        <Input type = {"text"} id = {"address"} value = {address} onChange ={handleAddress} name = "address" placeholder = {"Address"} label = {"Address"}></Input>
-                        <Input type = {"text"} id = {"email"} value = {email} onChange ={handleEmail} name = "email" placeholder = {"Email Address"} label = {"Email Address"}></Input>
-                        <Input type = {"password"} value = {password} onChange ={handlePassword} id = {"password"} name = {"password"} placeholder = {"Password"} label = {"password"}></Input>
-                        <Input type = {"validatePassword"} id = {"validatePassword"} value = {validatePassword} onChange ={handleValidatPasswored} name = {"password"} placeholder = {"reenter Password"} label = {"Password"}></Input>
+                        <Input type = {"text"} id = {"name"} value = {name} onChange ={handleName} name = "name" placeholder = {"Name"} ></Input>
+                        <Input type = {"text"} id = {"fatherName"} value = {fatherName} onChange ={handleFatherName} name = "fatherName" placeholder = {"Father Name"}></Input>
+                        <Input type = {"text"} id = {"phone"} value = {phoneNumber} onChange ={handlePhoneNumber} name = "phone" placeholder = {"Phone Number (+2519...)"} ></Input>
+                        <Input type = {"text"} id = {"address"} value = {address} onChange ={handleAddress} name = "address" placeholder = {"Address"} ></Input>
+                        <Input type = {"text"} id = {"email"} value = {email} onChange ={handleEmail} name = "email" placeholder = {"Email Address"} ></Input>
+                        <Input type = {"password"} value = {password} onChange ={handlePassword} id = {"password"} name = {"password"} placeholder = {"Password"} ></Input>
+                        <Input type = {"validatePassword"} id = {"validatePassword"} value = {validatePassword} onChange ={handleValidatPasswored} name = {"password"} placeholder = {"reenter Password"} ></Input>
 
                     <div className="mt-10">
                             <button onClick={registerEmployee} type = "submit" className="w-full px-4 py-4 text-lg font-semibold text-white rounded-lg text-center bg-black 

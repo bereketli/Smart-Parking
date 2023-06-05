@@ -18,17 +18,19 @@ const Authenticated= (props) =>{
     function getCars(event){
         axios.get("http://localhost:5000/list/cars")
         .then(response =>{
-            console.log(response.data,"iauth")
+            
 
             handleSlots(response.data)
            
         })
         .catch(error =>{
-            console.log(error)
+           
         })
 
     }
-    // console.log(data.authData.name)
+
+    
+
 
         return (
             <div className = "bg-blue-500 h-screen">

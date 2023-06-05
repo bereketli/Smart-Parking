@@ -62,8 +62,8 @@ const Signin = (props) =>{
 
                 <div className = "mt-6" >
                     <form action="">
-                        <Input type = {"text"} id = {"email"} value = {email} onChange = {handleEmail} name = "email" placeholder = {"Email Address"} label = {"Email Address"}></Input>
-                        <Input type = {"password"} id = {"password"} value = {password} onChange = {handlePassword} onname = {"password"} placeholder = {"Password"} label = {"Email Address"}></Input>
+                        <Input type = {"text"} id = {"email"} value = {email} onChange = {handleEmail} name = "email" placeholder = {"Email Address"} ></Input>
+                        <Input type = {"password"} id = {"password"} value = {password} onChange = {handlePassword} onname = {"password"} placeholder = {"Password"} ></Input>
                         
 
                     <div className="mt-10">

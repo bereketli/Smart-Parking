@@ -5,7 +5,7 @@ const Input = (props) =>{
             <input type={props.type} id = {props.id} value = {props.value} onChange={props.onChange} name = {props.name} placeholder={props.placeholder}
             className = "input peer" autocomplete="NA" />
             
-            {/* <label className = "input-label transition-all" >{props.label}</label> */}
+            <label className = "input-label transition-all" >{props.label}</label>
 
     </div>
     )

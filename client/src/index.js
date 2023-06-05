@@ -3,15 +3,16 @@ import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
-  Link,
+
 } from "react-router-dom";
 import './index.css';
 import App from './App';
 import Signin from './pages/sign in/Signin';
 import SignUp from './pages/sign up/SignUp';
 import Authenticated from './pages/sign in/Authenticated';
+import Payment from './pages/payment/Payment';
 import reportWebVitals from './reportWebVitals';
+
 
 const router = createBrowserRouter([
   {
@@ -19,17 +20,21 @@ const router = createBrowserRouter([
     element: <App/>,
   },
   {
-    path: "/login",
+    path: "login",
     element: <Signin/>
   },
   {
-    path: "/signup",
+    path: "signup",
     element: <SignUp/>
 
   },
   {
-    path:"/authenticated",
+    path:"authenticated",
     element:<Authenticated/>
+  },
+  {
+    path:"payment",
+    element:<Payment/>
   }
 ]);
 
